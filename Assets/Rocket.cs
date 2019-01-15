@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
+    Rigidbody rigidbody;
+    const float thrust = 1000;
+    const float torque = 50;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -21,16 +25,16 @@ public class Rocket : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            print("Thrust");
+            rigidbody.AddRelativeForce(Vector3.up * Time.deltaTime * thrust);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            print("Rotate Left");
+            transform.Rotate(-Vector3.forward * Time.deltaTime * torque);
         } 
         else if (Input.GetKey(KeyCode.D))
         {
-            print("Rotate Right");
+            transform.Rotate(Vector3.forward * Time.deltaTime * torque);
         }
     }
 }
