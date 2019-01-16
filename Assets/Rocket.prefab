@@ -592,9 +592,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a1564032759bcb24eb5ff5fc48ee424a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -692,3 +692,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 1750
   torque: 150
+  mainEngine: {fileID: 8300000, guid: 297af66058ef8a047a89f8ca3cffb8cd, type: 3}
+  explode: {fileID: 8300000, guid: 44bc18f9c5ca28a4bb6787d842878e03, type: 3}
+  success: {fileID: 8300000, guid: 1b05f38670a151c43bff4ba30eb49042, type: 3}

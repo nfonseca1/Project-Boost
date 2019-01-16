@@ -8,6 +8,9 @@ public class Rocket : MonoBehaviour
 {
     [SerializeField] float thrust = 1750f;
     [SerializeField] float torque = 150f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip explode;
+    [SerializeField] AudioClip success;
 
     Rigidbody rigidbody;
     AudioSource audioSource;
@@ -27,22 +30,16 @@ public class Rocket : MonoBehaviour
     {
         if(state == State.Alive)
         {
-            Thrust();
-            Rotate();
+            RespondToThrustInput();
+            RespondToRotateInput();
         }
     }
 
-    private void Thrust()
+    private void RespondToThrustInput()
     {
-        float frameThrustSpeed = thrust * Time.deltaTime;
-
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidbody.AddRelativeForce(Vector3.up * frameThrustSpeed);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            ApplyThrust();
         }
         else
         {
@@ -50,7 +47,17 @@ public class Rocket : MonoBehaviour
         }
     }
 
-    private void Rotate()
+    private void ApplyThrust()
+    {
+        float frameThrustSpeed = thrust * Time.deltaTime;
+        rigidbody.AddRelativeForce(Vector3.up * frameThrustSpeed);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+    }
+
+    private void RespondToRotateInput()
     {
         rigidbody.freezeRotation = true;
 
@@ -78,14 +85,28 @@ public class Rocket : MonoBehaviour
                 print("OK");
                 break;
             case "Finish":
-                state = State.Transcending;
-                Invoke("LoadNextLevel", 1f);
+                StartSuccessSequence();
                 break;
             default:
-                state = State.Dying;
-                Invoke("LoadFirstLevel", 1f);
+                StartDeathSequence();
                 break;
         }
+    }
+
+    private void StartSuccessSequence()
+    {
+        state = State.Transcending;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        Invoke("LoadNextLevel", 1f);
+    }
+
+    private void StartDeathSequence()
+    {
+        state = State.Dying;
+        audioSource.Stop();
+        audioSource.PlayOneShot(explode);
+        Invoke("LoadFirstLevel", 1f);
     }
 
     private void LoadNextLevel()
