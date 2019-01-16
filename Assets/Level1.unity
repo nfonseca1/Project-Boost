@@ -1594,6 +1594,7 @@ GameObject:
   - component: {fileID: 2064256351}
   - component: {fileID: 2064256350}
   - component: {fileID: 2064256349}
+  - component: {fileID: 2064256353}
   m_Layer: 0
   m_Name: Obstacle (1)
   m_TagString: Untagged
@@ -1666,13 +1667,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064256348}
-  m_LocalRotation: {x: -0.070711665, y: -0.060715567, z: 0.75539434, w: 0.64860845}
-  m_LocalPosition: {x: 1.0732627, y: -2.557312, z: -1.5774864}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -1.7, y: -2.557312, z: -1.5774864}
   m_LocalScale: {x: 14.678806, y: 2.0930998, z: 5.3929}
   m_Children: []
   m_Father: {fileID: 1412106224}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -10.696, z: 98.699005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &2064256353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064256348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20a84f91949f004a8f9cf26811d940d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 0, y: -15, z: 0}
+  movementFactor: 0
 --- !u!1001 &701631941472545595
 PrefabInstance:
   m_ObjectHideFlags: 0
