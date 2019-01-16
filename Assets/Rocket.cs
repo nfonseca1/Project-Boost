@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
+    [SerializeField] float thrust = 1750f;
+    [SerializeField] float torque = 150f;
     Rigidbody rigidbody;
     AudioSource audioSource;
-    const float thrust = 1200;
-    const float torque = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +26,11 @@ public class Rocket : MonoBehaviour
 
     private void Thrust()
     {
+        float frameThrustSpeed = thrust * Time.deltaTime;
+
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidbody.AddRelativeForce(Vector3.up * Time.deltaTime * thrust);
+            rigidbody.AddRelativeForce(Vector3.up * frameThrustSpeed);
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -44,13 +46,15 @@ public class Rocket : MonoBehaviour
     {
         rigidbody.freezeRotation = true;
 
+        float frameRotationSpeed = torque * Time.deltaTime;
+
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(-Vector3.forward * Time.deltaTime * torque);
+            transform.Rotate(-Vector3.forward * frameRotationSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.forward * Time.deltaTime * torque);
+            transform.Rotate(Vector3.forward * frameRotationSpeed);
         }
 
         rigidbody.freezeRotation = false;
