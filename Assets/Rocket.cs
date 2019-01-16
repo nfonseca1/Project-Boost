@@ -7,8 +7,8 @@ public class Rocket : MonoBehaviour
 {
     Rigidbody rigidbody;
     AudioSource audioSource;
-    const float thrust = 1000;
-    const float torque = 50;
+    const float thrust = 1200;
+    const float torque = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,11 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessInput();
+        Thrust();
+        Rotate();
     }
 
-    private void ProcessInput()
+    private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space))
         {
@@ -37,14 +38,21 @@ public class Rocket : MonoBehaviour
         {
             audioSource.Stop();
         }
+    }
+
+    private void Rotate()
+    {
+        rigidbody.freezeRotation = true;
 
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(-Vector3.forward * Time.deltaTime * torque);
-        } 
+        }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(Vector3.forward * Time.deltaTime * torque);
         }
+
+        rigidbody.freezeRotation = false;
     }
 }
