@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.28
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.43671682, g: 0.48432273, b: 0.56457204, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -48,7 +48,7 @@ LightmapSettings:
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
-    m_IndirectOutputScale: 1
+    m_IndirectOutputScale: 0.99
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
@@ -1598,22 +1598,22 @@ PrefabInstance:
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.6931387
+      value: 0.8199583
       objectReference: {fileID: 0}
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.18021011
+      value: -0.40200114
       objectReference: {fileID: 0}
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.19389078
+      value: 0.12701079
       objectReference: {fileID: 0}
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6704397
+      value: 0.38721022
       objectReference: {fileID: 0}
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
@@ -1623,17 +1623,17 @@ PrefabInstance:
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 87.852005
+      value: 132.51399
       objectReference: {fileID: 0}
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 133.58101
+      value: 8.769989
       objectReference: {fileID: 0}
     - target: {fileID: 2030217644162235568, guid: 50bdc0dbe2faad547ba2ddbd877d0c19,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 164.264
+      value: 56.097992
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50bdc0dbe2faad547ba2ddbd877d0c19, type: 3}
