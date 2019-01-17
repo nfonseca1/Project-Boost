@@ -133,16 +133,28 @@ public class Rocket : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(explode);
         explodeParticles.Play();
-        Invoke("LoadFirstLevel", levelLoadDelay);
+        Invoke("LoadPreviousLevel", levelLoadDelay);
     }
 
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene(1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
-    private void LoadFirstLevel()
+    private void LoadPreviousLevel()
     {
-        SceneManager.LoadScene(0);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int previousSceneIndex = currentSceneIndex - 1;
+        if(previousSceneIndex == -1)
+        {
+            previousSceneIndex = 0;
+        }
+        SceneManager.LoadScene(previousSceneIndex);
     }
 }
