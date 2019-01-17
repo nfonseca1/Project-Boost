@@ -20,6 +20,8 @@ public class Rocket : MonoBehaviour
     Rigidbody rigidbody;
     AudioSource audioSource;
 
+    bool collisionOn = true;
+
     enum State { Alive, Dying, Transcending }
     State state = State.Alive;
 
@@ -33,10 +35,26 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(state == State.Alive)
+        if (state == State.Alive)
         {
             RespondToThrustInput();
             RespondToRotateInput();
+        }
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKeys();
+        }
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionOn = !collisionOn;
         }
     }
 
@@ -84,7 +102,7 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive) { return; }
+        if (state != State.Alive || !collisionOn) { return; }
 
         switch (collision.gameObject.tag)
         {
