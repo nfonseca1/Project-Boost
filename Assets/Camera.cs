@@ -19,12 +19,23 @@ public class Camera : MonoBehaviour
     {
         if (player)
         {
-            Vector3 midpoint = (levelCenter.position + player.position) / 2;
-            transform.position = new Vector3(
-                midpoint.x,
-                midpoint.y,
-                midpoint.z - distance
-            );
+            if (levelCenter)
+            {
+                Vector3 midpoint = (levelCenter.position + player.position) / 2;
+                transform.position = new Vector3(
+                    midpoint.x,
+                    midpoint.y,
+                    midpoint.z - distance
+                );
+            }
+            else
+            {
+                transform.position = new Vector3(
+                    player.position.x,
+                    player.position.y + 5f,
+                    player.position.z - distance
+                );
+            }
         }
         else
         {
