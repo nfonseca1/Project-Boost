@@ -11,7 +11,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip explode;
     [SerializeField] AudioClip success;
-    [SerializeField] float levelLoadDelay = 1.5f;
+    [SerializeField] float levelLoadDelay = 2f;
 
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem explodeParticles;
@@ -90,11 +90,11 @@ public class Rocket : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(-Vector3.forward * frameRotationSpeed);
+            transform.Rotate(Vector3.forward * frameRotationSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.forward * frameRotationSpeed);
+            transform.Rotate(-Vector3.forward * frameRotationSpeed);
         }
 
         rigidbody.freezeRotation = false;
@@ -139,7 +139,7 @@ public class Rocket : MonoBehaviour
     private void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
+        int nextSceneIndex = currentSceneIndex + 0; //todo change this back to 1
         if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
             nextSceneIndex = 0;
@@ -150,7 +150,7 @@ public class Rocket : MonoBehaviour
     private void LoadPreviousLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int previousSceneIndex = currentSceneIndex - 1;
+        int previousSceneIndex = currentSceneIndex - 0; //todo change this back to 1
         if(previousSceneIndex == -1)
         {
             previousSceneIndex = 0;
