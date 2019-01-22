@@ -84,7 +84,7 @@ public class Rocket : MonoBehaviour
 
     private void RespondToRotateInput()
     {
-        rigidbody.freezeRotation = true;
+        //rigidbody.freezeRotation = true;
 
         float frameRotationSpeed = torque * Time.deltaTime;
 
@@ -97,7 +97,7 @@ public class Rocket : MonoBehaviour
             transform.Rotate(-Vector3.forward * frameRotationSpeed);
         }
 
-        rigidbody.freezeRotation = false;
+        //rigidbody.freezeRotation = false;
     }
 
     private void OnCollisionEnter(Collision collision)
