@@ -90,11 +90,11 @@ public class Rocket : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward * frameRotationSpeed);
+            transform.Rotate(Vector3.forward * frameRotationSpeed, Space.World);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * frameRotationSpeed);
+            transform.Rotate(-Vector3.forward * frameRotationSpeed, Space.World);
         }
 
         //rigidbody.freezeRotation = false;
@@ -139,7 +139,7 @@ public class Rocket : MonoBehaviour
     private void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 0; //todo change this back to 1
+        int nextSceneIndex = currentSceneIndex + 1; 
         if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
             nextSceneIndex = 0;
