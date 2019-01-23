@@ -84,20 +84,17 @@ public class Rocket : MonoBehaviour
 
     private void RespondToRotateInput()
     {
-        //rigidbody.freezeRotation = true;
-
         float frameRotationSpeed = torque * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector3.forward * frameRotationSpeed, Space.World);
+            transform.Rotate(Vector3.forward * frameRotationSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * frameRotationSpeed, Space.World);
+            transform.Rotate(-Vector3.forward * frameRotationSpeed);
         }
-
-        //rigidbody.freezeRotation = false;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
