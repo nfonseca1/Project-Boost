@@ -24517,6 +24517,11 @@ PrefabInstance:
       propertyPath: levelCenter
       value: 
       objectReference: {fileID: 2120190310}
+    - target: {fileID: 4347708317399432627, guid: a33612aeb856c13419efb865640b4ecd,
+        type: 3}
+      propertyPath: levelCenter
+      value: 
+      objectReference: {fileID: 2120190310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a33612aeb856c13419efb865640b4ecd, type: 3}
 --- !u!1001 &9095133424859364382
