@@ -32,7 +32,7 @@ public class Camera : MonoBehaviour
             {
                 transform.position = new Vector3(
                     player.position.x,
-                    player.position.y + 5f,
+                    player.position.y + 2f,
                     player.position.z - distance
                 );
             }
