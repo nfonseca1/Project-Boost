@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2862702771530903842}
   - component: {fileID: 6813456718688835347}
   - component: {fileID: 2654118199735312105}
+  - component: {fileID: 1019521088902884528}
   m_Layer: 0
   m_Name: Blue Crystal
   m_TagString: Untagged
@@ -99,3 +100,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!64 &1019521088902884528
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315498273042118642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 9eda58bd89ce5324d98c035f04aaf912, type: 3}

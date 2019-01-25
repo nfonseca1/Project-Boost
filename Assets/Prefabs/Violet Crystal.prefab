@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7695927995543741115}
   - component: {fileID: 4600766879203797252}
   - component: {fileID: 5220266937266595088}
+  - component: {fileID: 6193053277424124126}
   m_Layer: 0
   m_Name: Violet Crystal
   m_TagString: Untagged
@@ -99,3 +100,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!64 &6193053277424124126
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496732618940140674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 9eda58bd89ce5324d98c035f04aaf912, type: 3}
