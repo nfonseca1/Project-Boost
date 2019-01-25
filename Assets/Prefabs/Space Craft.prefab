@@ -1205,7 +1205,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100010, guid: 93caca8112deb084ba25491cad46e0ae, type: 3}
       propertyPath: m_Name
-      value: ship Variant
+      value: Space Craft
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 93caca8112deb084ba25491cad46e0ae, type: 3}
       propertyPath: m_LocalPosition.x
