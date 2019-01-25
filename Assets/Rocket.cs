@@ -16,6 +16,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem explodeParticles;
     [SerializeField] ParticleSystem successParticles;
+    [SerializeField] LevelLoader levelLoader;
 
     Rigidbody rigidbody;
     AudioSource audioSource;
@@ -48,10 +49,6 @@ public class Rocket : MonoBehaviour
 
     private void RespondToDebugKeys()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadNextLevel();
-        }
         if (Input.GetKeyDown(KeyCode.C))
         {
             collisionOn = !collisionOn;
@@ -121,7 +118,7 @@ public class Rocket : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
-        Invoke("LoadNextLevel", levelLoadDelay);
+        levelLoader.Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     private void StartDeathSequence()
@@ -129,29 +126,8 @@ public class Rocket : MonoBehaviour
         state = State.Dying;
         audioSource.Stop();
         audioSource.PlayOneShot(explode);
-        explodeParticles.Play();
-        Invoke("LoadPreviousLevel", levelLoadDelay);
-    }
-
-    private void LoadNextLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1; 
-        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
-        {
-            nextSceneIndex = 0;
-        }
-        SceneManager.LoadScene(nextSceneIndex);
-    }
-
-    private void LoadPreviousLevel()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int previousSceneIndex = currentSceneIndex - 0; //todo change this back to 1
-        if(previousSceneIndex == -1)
-        {
-            previousSceneIndex = 0;
-        }
-        SceneManager.LoadScene(previousSceneIndex);
+        Instantiate(explodeParticles, transform.position, Quaternion.identity);
+        levelLoader.RequestReloadLevel();
+        Destroy(gameObject);
     }
 }

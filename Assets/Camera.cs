@@ -6,45 +6,27 @@ public class Camera : MonoBehaviour
 {
     [SerializeField] float distance = 20f;
     [SerializeField] Transform levelCenter;
-
-    Transform player;
-
-    private void Start()
-    {
-        GetPlayer();
-    }
+    [SerializeField] Transform player;
 
     // Update is called once per frame
     void Update()
     {
-        if (player)
+        if (levelCenter)
         {
-            if (levelCenter)
-            {
-                Vector3 midpoint = (levelCenter.position + player.position) / 2;
-                transform.position = new Vector3(
-                    midpoint.x,
-                    midpoint.y,
-                    midpoint.z - distance
-                );
-            }
-            else
-            {
-                transform.position = new Vector3(
-                    player.position.x,
-                    player.position.y + 2f,
-                    player.position.z - distance
-                );
-            }
+            Vector3 midpoint = (levelCenter.position + player.position) / 2;
+            transform.position = new Vector3(
+                midpoint.x,
+                midpoint.y,
+                midpoint.z - distance
+            );
         }
         else
         {
-            GetPlayer();
+            transform.position = new Vector3(
+                player.position.x,
+                player.position.y + 2f,
+                player.position.z - distance
+            );
         }
-    }
-
-    void GetPlayer()
-    {
-        player = FindObjectOfType<Rocket>().transform;
     }
 }
