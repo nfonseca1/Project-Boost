@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 6457821818868082394}
   - component: {fileID: 6457821818868082395}
   - component: {fileID: 6457821818868082392}
-  - component: {fileID: 6457821818868082393}
   m_Layer: 0
-  m_Name: crystal-red
+  m_Name: Red Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,18 +99,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6457821818868082393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6457821818868082374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c20a84f91949f004a8f9cf26811d940d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementVector: {x: 0, y: -15, z: 0}
-  period: 4
-  delay: 0
