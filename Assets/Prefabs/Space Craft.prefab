@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &5024658372295608931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095133424036912210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.11}
+  m_Center: {x: 0.5, y: -0.5, z: -1.28}
+--- !u!65 &4949125013955478684
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095133424036912212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.11}
+  m_Center: {x: -0.5, y: -0.5, z: -1.28}
+--- !u!65 &7067084604640166055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095133424036912214}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.11}
+  m_Center: {x: -0.5, y: 0.5, z: -1.28}
+--- !u!65 &4788823091787894984
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095133424036912216}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.11}
+  m_Center: {x: 0.5, y: 0.5, z: -1.28}
 --- !u!54 &6507462342338056877
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9,7 +61,7 @@ Rigidbody:
   m_GameObject: {fileID: 9095133424036912218}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 0.75
   m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -39,8 +91,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 61eac2bdff0b1584f9327d9bfc5641a5, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -153,67 +205,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 1750
   torque: 150
-  mainEngine: {fileID: 8300000, guid: 297af66058ef8a047a89f8ca3cffb8cd, type: 3}
-  explode: {fileID: 8300000, guid: 44bc18f9c5ca28a4bb6787d842878e03, type: 3}
-  success: {fileID: 8300000, guid: 1b05f38670a151c43bff4ba30eb49042, type: 3}
   levelLoadDelay: 1.5
   mainEngineParticles: {fileID: 198100719057022332}
   explodeParticles: {fileID: 5471133583378970579, guid: 1bd10712cffe1c649bb8a8473f6e5ef1,
     type: 3}
   successParticles: {fileID: 788783832120938850}
   levelLoader: {fileID: 0}
---- !u!65 &5024658372295608931
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095133424036912210}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.7, z: 0.11}
-  m_Center: {x: 0.5, y: -0.5, z: -1.28}
---- !u!65 &4949125013955478684
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095133424036912212}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.7, z: 0.11}
-  m_Center: {x: -0.5, y: -0.5, z: -1.28}
---- !u!65 &7067084604640166055
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095133424036912214}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.7, z: 0.11}
-  m_Center: {x: -0.5, y: 0.5, z: -1.28}
---- !u!65 &4788823091787894984
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095133424036912216}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.7, z: 0.11}
-  m_Center: {x: 0.5, y: 0.5, z: -1.28}
+  successAudio: {fileID: 8300000, guid: 1b05f38670a151c43bff4ba30eb49042, type: 3}
 --- !u!1001 &591096702215111292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,19 +359,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100010, guid: 93caca8112deb084ba25491cad46e0ae, type: 3}
       propertyPath: m_Name
-      value: Space Craft
+      value: ship
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 93caca8112deb084ba25491cad46e0ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.494465
+      value: -12.2
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 93caca8112deb084ba25491cad46e0ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.6
+      value: 5.32
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 93caca8112deb084ba25491cad46e0ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 93caca8112deb084ba25491cad46e0ae, type: 3}
       propertyPath: m_LocalRotation.x

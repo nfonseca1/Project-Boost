@@ -8,19 +8,18 @@ public class Rocket : MonoBehaviour
 {
     [SerializeField] float thrust = 1750f;
     [SerializeField] float torque = 150f;
-    [SerializeField] AudioClip mainEngine;
-    [SerializeField] AudioClip explode;
-    [SerializeField] AudioClip success;
     [SerializeField] float levelLoadDelay = 2f;
 
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem explodeParticles;
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] LevelLoader levelLoader;
+    [SerializeField] AudioClip successAudio;
 
     Rigidbody rigidbody;
     AudioSource audioSource;
 
+    float currentVolume = 0;
     bool collisionOn = true;
 
     enum State { Alive, Dying, Transcending }
@@ -59,12 +58,29 @@ public class Rocket : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            ManageVolume(true);
             ApplyThrust();
         }
         else
         {
-            audioSource.Stop();
+            ManageVolume(false);
             mainEngineParticles.Stop();
+        }
+    }
+
+    private void ManageVolume(bool status)
+    {
+        if (status)
+        {
+            var volume = Mathf.Lerp(currentVolume, 0.5f, 0.5f);
+            currentVolume = volume;
+            audioSource.volume = currentVolume;
+        }
+        else
+        {
+            var volume = Mathf.Lerp(currentVolume, 0, 0.5f);
+            currentVolume = volume;
+            audioSource.volume = currentVolume;
         }
     }
 
@@ -72,10 +88,6 @@ public class Rocket : MonoBehaviour
     {
         float frameThrustSpeed = thrust * Time.deltaTime;
         rigidbody.AddRelativeForce(Vector3.up * frameThrustSpeed);
-        if (!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(mainEngine);
-        }
         mainEngineParticles.Play();
     }
 
@@ -115,17 +127,16 @@ public class Rocket : MonoBehaviour
     private void StartSuccessSequence()
     {
         state = State.Transcending;
-        audioSource.Stop();
-        audioSource.PlayOneShot(success);
         successParticles.Play();
+        audioSource.Stop();
+        audioSource.volume = 0.5f;
+        audioSource.PlayOneShot(successAudio);
         levelLoader.Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     private void StartDeathSequence()
     {
         state = State.Dying;
-        audioSource.Stop();
-        audioSource.PlayOneShot(explode);
         Instantiate(explodeParticles, transform.position, Quaternion.identity);
         levelLoader.RequestReloadLevel();
         Destroy(gameObject);
