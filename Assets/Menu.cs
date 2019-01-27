@@ -6,40 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] Button button;
     [SerializeField] Image loadingScreen;
+    [SerializeField] Slider slider;
 
     Text loadingText;
-    float minLoadBrightness = 50;
-    float maxLoadBrightness = 256;
-    bool gameStarted = false;
-    AsyncOperation AO;
 
-    const float tau = Mathf.PI * 2;
-
-    private void Update()
+    public void StartLoad(int sceneIndex)
     {
-        button.onClick.AddListener(LoadScene);
-        if (gameStarted)
-        {
-            SetLoadingScreen();
-        }
+        StartCoroutine(LoadLevel(sceneIndex));
     }
 
-    private void LoadScene()
+    private IEnumerator LoadLevel(int sceneIndex)
     {
-        gameStarted = true;
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
         loadingScreen.gameObject.SetActive(true);
-        loadingText = loadingScreen.GetComponentInChildren<Text>();
 
-        AO = SceneManager.LoadSceneAsync(1);
-    }
-
-    private void SetLoadingScreen()
-    {
-        print("running");
-        var sineWave = Mathf.Sin(Time.time * tau);
-        var colorValue = Mathf.Clamp(sineWave * maxLoadBrightness, minLoadBrightness, maxLoadBrightness);
-        loadingText.color = new Color(colorValue, colorValue, colorValue);
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            slider.value = progress;
+            
+            yield return null;
+        }
     }
 }

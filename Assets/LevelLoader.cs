@@ -26,7 +26,7 @@ public class LevelLoader : MonoBehaviour
         {
             nextSceneIndex = 0;
         }
-        SceneManager.LoadScene(nextSceneIndex);
+        gameObject.GetComponent<Menu>().StartLoad(nextSceneIndex);
     }
 }
 
